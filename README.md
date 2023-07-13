@@ -1,64 +1,43 @@
-
 Signum Bot - CodeWars Profile Viewer
-Signum Bot
-
-Signum Bot is a powerful tool designed to simplify the process of viewing user profiles on CodeWars. This GitHub repository contains the source code and documentation for the Signum Bot.
+Description
+Signum Bot is a versatile and powerful tool that allows you to view user profiles on CodeWars, an online platform for honing your programming skills through coding challenges. This GitHub repository contains the source code and documentation for Signum Bot, enabling you to deploy and utilize it effectively.
 
 Features
-Profile Lookup: Signum Bot can fetch and display user profiles from CodeWars.
-User Information: Get detailed information about a user, including their username, rank, honor points, and completed katas.
-Codewars Badges: View the badges earned by a user, showcasing their accomplishments on CodeWars.
-Recent Activity: See the latest activity of a user, including completed katas, created katas, and comments.
-Installation
-Clone the repository:
+Profile Viewing: Signum Bot provides a simple interface to search and view user profiles on CodeWars. You can quickly retrieve information such as the user's username, honor points, and completed katas.
+Detailed User Information: In addition to basic profile details, Signum Bot also fetches and displays more comprehensive information about a user, including their overall ranking, total completed katas, and average rank for their solutions.
+Customizable Configuration: Signum Bot offers various configuration options, allowing you to tailor its behavior according to your preferences. You can adjust settings like the number of katas to display, sorting options, and the information to include in the user profile.
+Getting Started
+To get started with Signum Bot, follow these steps:
+
+Clone the repository to your local machine using the following command:
+
 bash
 Copy code
 git clone https://github.com/your-username/signum-bot.git
-Install the dependencies:
-bash
+Install the required dependencies by navigating to the project directory and executing the following command:
+
 Copy code
-cd signum-bot
 npm install
-Set up environment variables:
-Create a .env file in the root directory and add the following variables:
+Configure Signum Bot by modifying the config.js file. You can specify the default search options, sorting preferences, and other settings to suit your needs.
 
-makefile
-Copy code
-BOT_TOKEN=your_discord_bot_token
-Make sure to replace your_discord_bot_token with your own Discord bot token.
+Run the bot using the following command:
 
-Start the bot:
-bash
 Copy code
-npm start
+node signum-bot.js
 Usage
-To use Signum Bot, invite it to your Discord server and mention it with the following command:
+Once you have Signum Bot up and running, you can interact with it through the command line interface. The following commands are available:
 
-css
-Copy code
-!profile [username]
-Replace [username] with the CodeWars username of the user whose profile you want to view. Signum Bot will fetch the user's profile and display it in your Discord server.
-
-Contributing
-Contributions are welcome! If you have any improvements or new features to add, please follow these steps:
-
-Fork the repository.
-Create a new branch for your feature: git checkout -b feature-name.
-Make the necessary changes and commit them: git commit -m "Add feature".
-Push to your forked repository: git push origin feature-name.
-Open a pull request.
-Please ensure that your code follows the existing coding style and includes appropriate tests.
+search <username>: Search for a user profile on CodeWars.
+view <username>: View the detailed profile information of a user.
+help: Display the available commands and their usage.
+Contributions
+Contributions to Signum Bot are welcome! If you find a bug or have an idea for an enhancement, feel free to open an issue or submit a pull request. Please make sure to follow the existing code style and include appropriate tests for any changes.
 
 License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. Feel free to modify and distribute the code as per the terms of the license.
 
-Acknowledgements
-Signum Bot was inspired by the CodeWars platform and aims to enhance the CodeWars experience for developers. Special thanks to the CodeWars community for their support and feedback.
+Acknowledgments
+Signum Bot makes use of the CodeWars API to retrieve user information. Special thanks to the CodeWars team for providing the API and making this project possible.
 
-Contact
-For any questions or inquiries, please reach out to the project maintainer:
-
-Name: John Doe
-Email: john.doe@example.com
-Discord: JohnDoe#1234
-We hope Signum Bot simplifies the process of viewing CodeWars profiles and provides valuable insights into developers' achievements. Happy coding!
+Disclaimer
+Signum Bot is an open-source project and is not affiliated with or endorsed by CodeWars. Please use it responsibly and in accordance with CodeWars' terms of service.
