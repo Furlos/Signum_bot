@@ -14,20 +14,20 @@
 import requests
 
 from signum_bot.api.codewars.urls import *
-from signum_bot.api.codewars.user import User
+from signum_bot.api.codewars.user import CodeWarsUser
 
 
 def user_url(username: str) -> str:
     return GET_USER.replace('{user}', username)
 
 
-def get_user(username: str) -> User:
-    # TODO: посмотреть как обрабатывать коды ошибок HTTP
-    user = requests.get(user_url(username))
-    if user.status_code >= 400:
-        return User()
-    user = user.json()
-    return User(username=user['username'],
-                honor=user['honor'],
-                languages=user['ranks']['languages'],
-                total_completed=user['codeChallenges']['totalCompleted'])
+def get_user(username: str) -> CodeWarsUser:
+    response = requests.get(user_url(username))
+    if response.status_code >= 400:
+        # TODO: подумать о возвращаемых данных (думаем вызывать ошибку)
+        return CodeWarsUser()
+    response = response.json()
+    return CodeWarsUser(username=response['username'],
+                        honor=response['honor'],
+                        languages=response['ranks']['languages'],
+                        total_completed=response['codeChallenges']['totalCompleted'])

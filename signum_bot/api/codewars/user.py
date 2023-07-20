@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class User:
+class CodeWarsUser:
     # TODO: посмотреть динамическое/автоматичесоке создание полей класса из объекта json
     username: str = None
     honor: int = None
