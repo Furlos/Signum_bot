@@ -17,10 +17,13 @@ from signum_bot.api.codewars.urls import *
 from signum_bot.api.codewars.user import User
 
 
+def user_url(username: str) -> str:
+    return GET_USER.replace('{user}', username)
+
+
 def get_user(username: str) -> User:
     # TODO: посмотреть как обрабатывать коды ошибок HTTP
-    url = GET_USER.replace('{user}', username)
-    user = requests.get(url)
+    user = requests.get(user_url(username))
     if user.status_code >= 400:
         return User()
     user = user.json()
