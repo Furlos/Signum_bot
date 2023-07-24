@@ -9,6 +9,7 @@ packages = [{include = "signum_bot"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 requests = "^2.31.0"
+pymongo = "^4.4.1"
 
 
 [build-system]
