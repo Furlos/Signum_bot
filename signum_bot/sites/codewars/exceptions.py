@@ -1,6 +1,3 @@
-# Todo posmotret chto takoe iskluchenie v pythone.
-# Todo posmotret kak delat svoi usklucheniya
-
 class Error400(Exception):
     def __init__(self):
         self.message = "Bad Request -- Something went wrong"
