@@ -1,2 +1,2 @@
 from . import *
-from .user import CodeWarsUser
+from .user import CodeWarsUserInfo
