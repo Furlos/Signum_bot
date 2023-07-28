@@ -1,13 +1,10 @@
 import asyncio
-from os.path import dirname
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters.command import Command
 from loguru import logger
 
-from config import TOKEN, LOGGER_LEVEL
+from config import TOKEN
 
-logger.remove()
-logger.add(dirname(__file__) + '/logs/logs_{time}.log', level=LOGGER_LEVEL, enqueue=True)
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
@@ -21,7 +18,7 @@ async def start(message: types.Message):
 
 @dp.message()
 async def echo(message: types.Message):
-    logger.info(f'{message.from_user.username} write to bot "{message.text}"')
+    logger.info(f'Пользователь: {message.from_user.username}. Написал: {message.text}')
     await message.answer(message.text)
 
 
@@ -32,4 +29,6 @@ async def main():
 
 
 if __name__ == "__main__":
+    logger.info("Запуск бота")
     asyncio.run(main())
+    logger.info("Бот остановлен")
