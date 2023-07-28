@@ -10,6 +10,9 @@ packages = [{include = "signum_bot"}]
 python = "^3.11"
 requests = "^2.31.0"
 pymongo = "^4.4.1"
+aiogram = "3.0b8"
+python-dotenv = "^1.0.0"
+loguru = "^0.7.0"
 
 
 [build-system]
