@@ -15,6 +15,7 @@ class _BaseUserModel(BaseModel):
 
 class Admin(_BaseUserModel):
     """ Администратор - это учитель, telegram_id которого помещен в список администраторов"""
+
     @staticmethod
     def delete_student():
         pass
@@ -86,6 +87,7 @@ class _TeamModel(BaseModel):
     title: str
     amount_members: int
     members: List[int]
+    owner_id: int  # telegram_id
     # score: int
 
 
