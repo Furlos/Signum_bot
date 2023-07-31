@@ -3,7 +3,7 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.filters.command import Command
 from loguru import logger
 
-from config import TOKEN
+from signum_bot.config import TOKEN
 
 
 bot = Bot(token=TOKEN)
