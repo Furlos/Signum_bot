@@ -11,7 +11,7 @@ def codewars_statistic(tg_id: int) -> Dict:
     return user.get_codewars_stat()
 
 
-def create_student(student_data: dict[str, Any]):
+def create_student(student_data: dict[str, Any]) -> bool:
     """
     student_data:
         '_id': tg_id,\n
@@ -24,10 +24,10 @@ def create_student(student_data: dict[str, Any]):
             'leetcode': ...\n
         }
     """
-    Student(**student_data).create()
+    return Student(**student_data).create()
 
 
-def create_teacher(teacher_data: dict[str, Any]):
+def create_teacher(teacher_data: dict[str, Any]) -> bool:
     """
     teacher_data:
         '_id': tg_id,\n
@@ -40,4 +40,4 @@ def create_teacher(teacher_data: dict[str, Any]):
             'leetcode': ...\n
         }
     """
-    Teacher(**teacher_data).create()
+    return Teacher(**teacher_data).create()

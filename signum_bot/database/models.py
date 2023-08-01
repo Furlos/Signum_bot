@@ -75,7 +75,11 @@ class UserModel(_BaseUserModel):
     def create_team(self):
         pass
 
-    def _create(self, role):
+    def _create(self, role) -> bool:
+        logger.info(f'Попытка создать нового {role} -> {self._id}')
+        if users.find_one({'_id': self._id}):
+            logger.info(f'Пользователся {self._id} уже сущеуствует')
+            return False
         logger.info(f'Создание нового {role} -> {self._id}')
         self.nicknames = {key.lower(): value for key, value in self.nicknames.items()}
         users.insert_one(
@@ -90,20 +94,21 @@ class UserModel(_BaseUserModel):
                 'own_teams': []
             }
         )
+        return True
 
 
 class Student(UserModel):
     teacher_id: Optional[int]  # telegram_id преподавателя
 
-    def create(self):
-        self._create('student')
+    def create(self) -> bool:
+        return self._create('student')
 
 
 class Teacher(UserModel):
     students_id: List[Optional[int]]  # telegram_id студентов, привязанных к этому преподавателю
 
-    def create(self):
-        self._create('teacher')
+    def create(self) -> bool:
+        return self._create('teacher')
 
     def get_info_of_student(self):
         """ Получение информации о студенте, который прикреплен к данному преподавателю """
