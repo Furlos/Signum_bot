@@ -6,7 +6,6 @@ _client = MongoClient('mongodb://localhost:27017/')  # cluster
 _db = _client.signum_bot  # create database
 
 # create collections
-students: Collection = _db['students']
-teachers: Collection = _db['teachers']
+users: Collection = _db['students']
 teams: Collection = _db['teams']
-admins: Collection = _db['admins']
+requests: Collection = _db['requests']
