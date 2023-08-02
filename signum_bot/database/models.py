@@ -78,7 +78,7 @@ class UserModel(_BaseUserModel):
     def _create(self, role) -> bool:
         logger.info(f'Попытка создать нового {role} -> {self._id}')
         if users.find_one({'_id': self._id}):
-            logger.info(f'Пользователся {self._id} уже сущеуствует')
+            logger.info(f'Пользователь {self._id} уже сущеуствует')
             return False
         logger.info(f'Создание нового {role} -> {self._id}')
         self.nicknames = {key.lower(): value for key, value in self.nicknames.items()}

@@ -18,8 +18,8 @@ async def start(message: types.Message):
 
 @dp.message()
 async def echo(message: types.Message):
-    logger.info(f'Пользователь: {message.from_user.username}. Написал: {message.text}')
-    await message.answer(message.text)
+    logger.info(f'Пользователь: {message.from_user.id} написал "{message.text}"')
+    await message.answer("Я не понимаю ...")
 
 
 @logger.catch

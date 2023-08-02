@@ -1,7 +1,4 @@
-import dataclasses
 from typing import Any
-
-from loguru import logger
 
 from signum_bot.database.models import *
 
