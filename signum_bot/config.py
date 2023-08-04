@@ -19,7 +19,8 @@ logger.add(os.path.dirname(__file__) + '/logs/logs_{time}.log',
            enqueue=True,
            format="{time:DD-MM-YYYY at HH:mm:ss} | "
                   "<level>{level:^8}</level> | "
-                  "<cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>")
+                  "<cyan>{name}</cyan>:<cyan>{file}</cyan>.<cyan>{function}</cyan>:<cyan>{line}</cyan> "
+                  "- <level>{message}</level>")
 
 _dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 if os.path.exists(_dotenv_path):
