@@ -31,7 +31,7 @@ def create_student(student_data: dict[str, Any]) -> bool:
         Student(**student_data).create()
         return True
     except UserExistsError:
-        logger.info(f'Не получилось создать пользователя -> {student_data["_id"]}, так как уже существует')
+        logger.info(f'Не получилось создать student -> {student_data["_id"]}, так как уже существует')
         return False
 
 
@@ -51,5 +51,5 @@ def create_teacher(teacher_data: dict[str, Any]) -> bool:
         Teacher(**teacher_data).create()
         return True
     except UserExistsError:
-        logger.info(f'Не получилось создать пользователя -> {teacher_data["_id"]}, так как уже существует')
+        logger.info(f'Не получилось создать teacher -> {teacher_data["_id"]}, так как уже существует')
         return False
