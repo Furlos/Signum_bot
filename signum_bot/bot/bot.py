@@ -5,7 +5,6 @@ from loguru import logger
 
 from signum_bot.config import TOKEN
 
-
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
@@ -25,10 +24,14 @@ async def echo(message: types.Message):
 @logger.catch
 async def main():
     logger.info('Запуск процесса поллинга новых апдейтов')
-    await dp.start_polling(bot)
+    try:
+        await dp.start_polling(bot)
+    finally:
+        logger.info("Бот остановлен")
+        await bot.session.close()
 
 
 if __name__ == "__main__":
     logger.info("Запуск бота")
     asyncio.run(main())
-    logger.info("Бот остановлен")
+    logger.info('Конец работы программы')
