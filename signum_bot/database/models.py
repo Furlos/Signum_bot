@@ -10,7 +10,7 @@ from signum_bot.database.exceptions import *
 
 
 class _BaseUserModel(BaseModel):
-    id: int = Field(alias='_id') # telegram_id
+    id: int = Field(alias='_id')  # telegram_id
     last_name: Optional[str] = ''
     name: str
     father_name: str
@@ -111,7 +111,7 @@ class Student(UserModel):
 
 class Teacher(UserModel):
     role: str = 'teacher'
-    students_id: List[Optional[int]]  # telegram_id студентов, привязанных к этому преподавателю
+    students_id: List[Optional[int]] = []  # telegram_id студентов, привязанных к этому преподавателю
 
     def create(self):
         self._create(self.role)
@@ -143,7 +143,7 @@ class TeamLeader(UserModel):
 
 
 class _TeamModel(BaseModel):
-    _id: int  # telegram_id
+    _id: int = Field(alias='_id')  # telegram_id
     title: str
     amount_members: int
     members: List[int]
