@@ -3,8 +3,7 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.filters.command import Command
 from loguru import logger
 
-from config import TOKEN
-
+from signum_bot.config import TOKEN
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
@@ -18,17 +17,21 @@ async def start(message: types.Message):
 
 @dp.message()
 async def echo(message: types.Message):
-    logger.info(f'Пользователь: {message.from_user.username}. Написал: {message.text}')
-    await message.answer(message.text)
+    logger.info(f'Пользователь: {message.from_user.id} написал "{message.text}"')
+    await message.answer("Я не понимаю ...")
 
 
 @logger.catch
 async def main():
     logger.info('Запуск процесса поллинга новых апдейтов')
-    await dp.start_polling(bot)
+    try:
+        await dp.start_polling(bot)
+    finally:
+        logger.info("Бот остановлен")
+        await bot.session.close()
 
 
 if __name__ == "__main__":
     logger.info("Запуск бота")
     asyncio.run(main())
-    logger.info("Бот остановлен")
+    logger.info('Конец работы программы')
