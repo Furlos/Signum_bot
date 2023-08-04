@@ -1,1 +1,11 @@
-6390452418:AAHtPeZy9T6g3MCcH3H8g-_72w_TVWp2yO8
+.env
+venv/
+env
+.vscode/
+.idea/
+__pycache__/
+*.db
+*.sqlite3
+.git/
+logs/
+.pytest*
