@@ -8,4 +8,10 @@ class CodeWarsUserInfo(BaseModel):
     total_completed: int
 
 
-class LeetCodeUserInfo(BaseModel): ...
+class LeetCodeUserInfo(BaseModel):
+    totalSolved: int
+    easySolved: int
+    mediumSolved: int
+    hardSolved: int
+    ranking: int
+    reputation: int
