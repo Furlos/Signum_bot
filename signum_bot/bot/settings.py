@@ -36,7 +36,7 @@ class Settings:
     bot: MyBot
 
     @staticmethod
-    def load_env_file(name: str):
+    def __load_env_file(name: str):
         _dotenv_path = os.path.join(os.path.dirname(__file__), name)
         if os.path.exists(_dotenv_path):
             load_dotenv(_dotenv_path)
@@ -46,7 +46,7 @@ class Settings:
 
     @staticmethod
     def get(env_filename: str):
-        Settings.load_env_file(env_filename)
+        Settings.__load_env_file(env_filename)
         return Settings(
             MyBot(
                 token=os.getenv('TOKEN'),
